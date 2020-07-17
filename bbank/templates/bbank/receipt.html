@@ -1,0 +1,21 @@
+{%extends "bbank/base.html"%}
+{% block body_block%}
+<div class="jumbotron">
+    <h1 class="postcontent">Receipt</h1>
+    <p class="postcontent">NAME:{{name}}</p>
+    <hr>
+    <p class="postcontent">EMAIL:{{email}}</p>
+    <hr>
+    <p class="postcontent">CITY:{{city}}</p>
+    <hr>
+    <p class="postcontent">STATE:{{state}}</p>
+    <hr>
+    <p  class="postcontent">TYPE:{{type}}</p>
+    <hr>
+    <p class="postcontent">QUANTITY:{{quantity}}ml</p>
+    <hr>
+    <p class="postcontent">POSTAL CODE:{{ZIP}}</p>
+    <hr>
+    <a href="{%url 'bbank:b_detail' pk=pik%}">OK</a>
+</div>
+{%endblock%}

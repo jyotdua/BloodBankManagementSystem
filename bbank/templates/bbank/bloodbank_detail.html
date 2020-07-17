@@ -1,0 +1,60 @@
+{%extends "bbank/base.html"%}
+{% block body_block%}
+<h1 class="posttitle loader">{{blood_bank.name}}</h1>
+
+<p class="postcontent">{{blood_bank.description|safe|linebreaksbr}}</p>
+
+<hr>
+<a class="btn btn-primary btn-comment" href="{%url 'bbank:add_feedback' pk=blood_bank.pk%}">Add Feedback</a>
+<div class="container">
+    {%for feedback in blood_bank.feedback.all%}
+    <br>
+    {%if user.is_authenticated%}
+    {{feedback.date}}
+    <p>{{feedback.text|safe|linebreaksbr}}</p>
+    <p>posted by : {{feedback.author}}</p>
+    {%endif%}
+    {%empty%}
+    <p>No feedback</p>
+    {%endfor%}
+    <br>
+    <hr>
+     <li>
+         <h3>GET BLOOD</h3>
+                <form class="post-form" action="{% url 'bbank:get_blood' pk=blood_bank.pk %}" method="get">
+                    <p class="postcontent" >ENTER BLOOD TYPE(eg A+,A-)</p>
+                <input name="type" type="text" placeholder="Blood_Type">
+                    <p class="postcontent" >ENTER HOW MANY ml's YOU REQUIRE</p>
+                    <input name="Quantity" type="number" placeholder="Quantity">
+                     <p class="postcontent" >NAME</p>
+                    <input name="name" type="text" placeholder="NAME">
+                    <p class="postcontent" >EMAIL</p>
+                    <input name="email" type="text" placeholder="EMAIL">
+                    <p class="postcontent" >CITY</p>
+                    <input name="city" type="text" placeholder="CITY">
+                    <p class="postcontent" >STATE</p>
+                    <input name="state" type="text" placeholder="state">
+                    <p class="postcontent" >ZIP</p>
+                    <input name="ZIP" type="text" placeholder="ZIP">
+                    <hr color="black">
+
+                       <button type="submit" value="confirm">NEXT</button>
+                </form>
+            </li>
+    <br>
+    <hr>
+         <h3>DONATE BLOOD</h3>
+                <form class="post-form" action="{% url 'bbank:Donate' pk=blood_bank.pk %}" method="get">
+                    <p class="postcontent" >ENTER BLOOD TYPE(eg A+,A-)</p>
+                <input name="type" type="text" placeholder="Blood_Type">
+                    <p class="postcontent" >ENTER HOW MANY ml's YOU WANT TO DONATE</p>
+                    <input name="Quantity" type="number" placeholder="Quantity">
+                    <hr>
+                       <button type="submit" value="confirm">DONATE</button>
+                    <br>
+                    <br>
+                </form>
+            </li>
+</div>
+
+{%endblock%}

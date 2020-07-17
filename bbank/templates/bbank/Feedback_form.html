@@ -1,0 +1,11 @@
+{% extends "bbank/base.html"%}
+{% block body_block %}
+<h1> Give Feedback</h1>
+<form class="post-form" method="post">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit" value="confirm">Post Feedback</button>
+</form>
+<script>var editor = new MediumEditor('.editable');</script>
+
+{% endblock %}

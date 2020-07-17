@@ -1,0 +1,21 @@
+{%extends "bbank/base.html"%}
+{% block body_block%}
+<div class="centerstage">
+
+
+    {% for bloodbank in object_list%}
+    <div class="post">
+        <h1><a href="{%url 'bbank:b_detail' pk=bloodbank.pk%}">{{bloodbank.name}}</a></h1>
+
+        <div class="Date">
+            <p>Contact at:{{bloodbank.contact_no}} or Email at : {{bloodbank.email_id}}</p>
+        </div>
+        <button type="submit"> <a href="{%url 'bbank:b_detail' pk=bloodbank.pk%}">feedback:{{bloodbank.feedback.count}}</a></button>
+
+
+
+
+    </div>
+    {%endfor%}
+</div>
+{%endblock%}

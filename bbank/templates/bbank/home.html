@@ -1,0 +1,11 @@
+{%extends "bbank/base.html"%}
+{% block body_block%}
+
+{%if user.is_authenticated%}
+<h1>Welcome to the website {{user.first_name}}</h1>
+
+{%else%}
+<h1>WELCOME TO THE WEBSITE </h1>
+<p>IF YOU HAVE NOT REGISTERED THEN PLEASE REGISTER</p>
+{%endif%}
+{%endblock%}

@@ -1,0 +1,17 @@
+{%extends "bbank/base.html"%}
+{% block body_block%}
+
+<h1>Fill out this form to find a suitable bloodbank</h1>
+<div class="jumbotron">
+<form class="post-form" action="{% url 'bbank:ReceiverSearch' %}" method="get">
+    <p class="postcontent">CITY </p><input name="city" type="text" placeholder="Search...">
+    <br>
+    <p class="postcontent">TYPE</p><input name="type" type="text" placeholder="Search...">
+    <br>
+    <p class="postcontent">QUANTITY</p><input name="quantity" type="number" placeholder="Search...">
+    <br>
+    <br>
+    <button type="submit" value="confirm">FIND</button>
+</form>
+</div>
+{%endblock%}
