@@ -1,2 +1,3 @@
 # BloodBankManagementSystem
-It is website which can decrease the distance between blood banks and common individuals.
+It is website which can help users find the nearest bloodbank
+
